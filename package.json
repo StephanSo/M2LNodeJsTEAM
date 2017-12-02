@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MaelleT/PortailM2L.git"
+    "url": "git+https://github.com/StephanSo/M2LNodeJS.git"
   },
-  "author": "MaelleT",
+  "author": "StephanSo",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/MaelleT/PortailM2L/issues"
+    "url": "https://github.com/StephanSo/M2LNodeJs/issues"
   },
-  "homepage": "https://github.com/MaelleT/PortailM2L#readme"
+  "homepage": "https://github.com/StephanSo/M2LNodeJs#readme"
 }
