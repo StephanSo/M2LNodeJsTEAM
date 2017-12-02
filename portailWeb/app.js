@@ -26,7 +26,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
+app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: false, cookie:{user:undefined}  }));
 // secret : key used to encrypted the cookie
 
 // Initialize Passport and restore authentication state, if any, from the

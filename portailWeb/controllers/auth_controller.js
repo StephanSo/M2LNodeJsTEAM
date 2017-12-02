@@ -1,4 +1,5 @@
-
+const DAOUser= require('../DAO/DAOpg/DAOUser');
+const daoUser = new DAOUser();
 
 // LOGIN
 exports.login_form = function(req, res) { // attention à la route / depuis le /login
@@ -6,7 +7,22 @@ exports.login_form = function(req, res) { // attention à la route / depuis le /
  };
 
 exports.login_authentication = function(req, res) {
-    res.redirect('/');
+    username = req.body.username;
+    password = req.body.password;
+
+    daoUser.loginUser(username, password, function (okpasok) {
+        console.log(okpasok);
+        if(okpasok==="ok"){
+            req.session.cookie.user=username;
+            console.log('test', req.session);
+            res.render('index', {user:req.session.cookie.user});
+        }
+        else{
+            res.render('login');
+        }
+
+    });
+
 };
 
 
