@@ -25,24 +25,25 @@ block body
                         a(href='#about') Menu 1
                     li
                         a(href='#contact') Menu 2
-                    li.dropdown
-                        a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
-                            | Menu 3 
-                            span.caret
-                        ul.dropdown-menu(role='menu')
-                            li
-                                a(href='#') Action 1
-                            li
-                                a(href='#') Action 2 
-                            li
-                                a(href='#') Action 3 
-                            li.divider
-                            li.dropdown-header Nav header
-                            li
-                                a(href='#') Action 4
-                            li
-                                a(href='#') Action 5
-                                
+                        if(!role)
+                        else if (role='lambda')
+                            li.dropdown
+                                a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
+                                    | Menu lambda
+                                    span.caret
+                                ul.dropdown-menu(role='menu')
+                                    li
+                                        a(href='#') Action 1
+                                    li
+                                        a(href='#') Action 2
+                                    li
+                                        a(href='#') Action 3
+                                    li.divider
+                                    li.dropdown-header Nav header
+                                    li
+                                        a(href='#') Action 4
+                                    li
+                                        a(href='#') Action 5
                 ul.nav.navbar-nav.navbar-right
                     li
                         if (!user)

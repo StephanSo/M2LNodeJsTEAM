@@ -3,6 +3,7 @@ class Users{
         this._idUser = unIdUser;
         this._username = unUsername;
         this._password = unPassword;
+
     }
 }
 
