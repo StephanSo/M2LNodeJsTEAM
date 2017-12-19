@@ -26,7 +26,7 @@ block body
                     li
                         a(href='#contact') Menu 2
                         if(!role)
-                        else if (role='lambda')
+                        else if (role==='lambda')
                             li.dropdown
                                 a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
                                     | Menu lambda
@@ -34,6 +34,24 @@ block body
                                 ul.dropdown-menu(role='menu')
                                     li
                                         a(href='#') Action 1
+                                    li
+                                        a(href='#') Action 2
+                                    li
+                                        a(href='#') Action 3
+                                    li.divider
+                                    li.dropdown-header Nav header
+                                    li
+                                        a(href='#') Action 4
+                                    li
+                                        a(href='#') Action 5
+                        else if (role==='ligue')
+                            li.dropdown
+                                a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-expanded='false')
+                                    | Menu Ligue
+                                    span.caret
+                                ul.dropdown-menu(role='menu')
+                                    li
+                                        a(href='/demandePrestation') Demande de Prestation
                                     li
                                         a(href='#') Action 2
                                     li

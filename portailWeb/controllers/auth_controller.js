@@ -14,11 +14,12 @@ exports.login_authentication = function(req, res) {
     daoUser.loginUser(username, password, function (okpasok) {
         console.log(okpasok);
         if(okpasok==="ok"){
-            req.session.cookie.user=username;
+            req.session.user=username;
             daoRole.getRoleByUsername(username, function (leRole) {
-                req.session.cookie.role=leRole;
+                req.session.role=leRole;
+
                 console.log('test', req.session);
-                res.render('index', {user:req.session.cookie.user, role:req.session.cookie.role});
+                res.render('index', {user:req.session.user, role:req.session.role});
             })
 
         }
@@ -33,6 +34,7 @@ exports.login_authentication = function(req, res) {
 
 //LOGOUT
 exports.logout = function(req, res){
-     req.logout();
+     req.session.user = undefined;
+     req.session.role = undefined;
      res.redirect('/');
  };

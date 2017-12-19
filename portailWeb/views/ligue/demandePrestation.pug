@@ -1,0 +1,36 @@
+extends ../layout
+
+block append body
+    .container.theme-showcase(role='main')
+
+        .jumbotron
+            h1 Demande de prestation
+            h4 Vous pouvez saisir ici vos demande de prestations d'afranchissment ou de reproduction
+            form.form-horizontal(action="/demandePrestation", method="post")
+                h7.form-group Nom de ligue :
+                        select.form-control(name = "txtLigue")
+                            each ligue in listLigues
+                                option(value=''+ligue.idLigue+'')= ligue.nom
+                h7.form-group Date :
+                        input.form-control(type ='date' name = "txtDate" )
+                h6
+                    b Reproduction :
+                h7.form-group Nombre de copie :
+                    input.form-control(type = 'text' name ='nbCopie')
+                h7.form-group
+                    label Type de copie :
+                        .radio
+                            label
+                                input(type="radio", name="rad1", value="NB", checked "true")
+                                | Noir et blanc
+                        .radio
+                            label
+                                input(type="radio", name="rad1", value="C")
+                                | Couleurs
+                h6
+                    b Affranchissement :
+                h7.form-group Nombre de courriers à affranchir
+                    input.form-control(type = 'text' name ='nbCourier')
+                h7.form-group Poids total du courrier :
+                    input.form-control(type = 'text' name ='poidsCourrier')
+                input.form-control(type = 'submit' value = 'Envoyer la demande')

@@ -12,6 +12,7 @@ var session = require('express-session'); //library to manage sessions.
 //ROUTES
 var index = require('./routes/index');
 var users = require('./routes/users');
+var demandePrestation=require('./routes/demandePrestation');
 
 var app = express();
 
@@ -26,7 +27,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: false, cookie:{user:undefined, role:undefined}  }));
+app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: false  }));
 // secret : key used to encrypted the cookie
 
 // Initialize Passport and restore authentication state, if any, from the
@@ -37,6 +38,7 @@ app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: fals
 // ROUTES
 app.use('/', index);
 app.use('/users', users);
+app.use('/demandePrestation',demandePrestation);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

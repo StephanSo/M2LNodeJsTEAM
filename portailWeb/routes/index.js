@@ -6,7 +6,7 @@ router.get('/',
     function(req, res) {
         console.log(req.session);
 
-        res.render('index', { title: 'Portail de la M2L', user: req.user });
+        res.render('index', { title: 'Portail de la M2L',user:req.session.user, role:req.session.role});
     }
 );
 

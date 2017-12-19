@@ -5,7 +5,7 @@ const Role = require('../../model/role');
 class DAORole {
     constructor() {
         this._client = new Client({
-            connectionString: 'postgres://sonnois:Bonjour@192.168.1.26:5432/M2L'
+            connectionString: 'postgres://groupe0:groupe0@192.168.222.86:5432/M2L'
             // connectionString : process.ENV.DATABASE_URL
         });
 
