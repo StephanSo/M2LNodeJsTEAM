@@ -16,7 +16,7 @@ exports.faireDemande = function (req,res) {
     dateDemande = req.body.txtDate;
     nbCopie = req.body.nbCopie;
     typeCopie = req.body.rad1;
-    nbAffr = req.body.nbCourrier;
+    nbAffr = req.body.nbCourier;
     pdsAffr = req.body.poidsCourrier;
     daoDemandePrestation.ajouterDemandePrestation(idLigue,dateDemande,nbCopie,typeCopie,nbAffr,pdsAffr);
     res.redirect('/');
