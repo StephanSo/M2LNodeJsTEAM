@@ -32,5 +32,25 @@ class DAOLigue {
             displaycb(lesLigues);
         });
     };
+    ligueByUser(username,cb){
+        const query = {
+            name:'fetch-une-ligue',
+            text:'select ligue."idLigue",nom from ligue inner join "user" on "idLigue"= "user"."idUser" where "user".username= $1',
+            values:[username]
+        };
+        this._client.query(query, function (err, result) {
+            if(err){
+                console.log(err.stack);
+            }
+            else{
+                result.rows.forEach(function () {
+                    let uneLigue = new Ligue(result.rows[0]['idLigue'],result.rows[0]['nom']);
+                    cb(uneLigue);
+
+                });
+            }
+        })
+
+    }
 }
 module.exports = DAOLigue;
