@@ -4,29 +4,32 @@ block append body
     .container.theme-showcase(role='main')
 
         .jumbotron
-            h1 Demande de prestation
-            h4 Vous pouvez saisir ici vos demandes de prestation d'affranchissement ou de reproduction
-            form.form-horizontal(action="/demandePrestation", method="post")
-                h7.form-group Date :
-                        input.form-control(type ='date' name = "txtDate"  )
-                h6
-                    b Reproduction :
-                h7.form-group Nombre de copie :
-                    input.form-control(type = 'number' name ='nbCopie' value="0")
-                h7.form-group
-                    label Type de copie :
-                        .radio
-                            label
-                                input(type="radio", name="rad1", value="NB", checked "true")
-                                | Noir et blanc
-                        .radio
-                            label
-                                input(type="radio", name="rad1", value="C")
-                                | Couleurs
-                h6
-                    b Affranchissement :
-                h7.form-group Nombre de courriers à affranchir
-                    input.form-control(type = 'number' name ='nbCourier' value="0")
-                h7.form-group Poids total du courrier :
-                    input.form-control(type = 'number' step="0.01" name ='poidsCourrier' value="0")
-                input.form-control(type = 'submit' value = 'Envoyer la demande')
+            if(role != 'ligue')
+                h1 VOUS N'AVEZ PAS ACCES A CELA
+            else
+                h1 Demande de prestation
+                h4 Vous pouvez saisir ici vos demandes de prestation d'affranchissement ou de reproduction
+                form.form-horizontal(action="/demandePrestation", method="post")
+                    h7.form-group Date :
+                            input.form-control(type ='date' name = "txtDate"  )
+                    h6
+                        b Reproduction :
+                    h7.form-group Nombre de copie :
+                        input.form-control(type = 'number' name ='nbCopie' value="0")
+                    h7.form-group
+                        label Type de copie :
+                            .radio
+                                label
+                                    input(type="radio", name="rad1", value="NB", checked "true")
+                                    | Noir et blanc
+                            .radio
+                                label
+                                    input(type="radio", name="rad1", value="C")
+                                    | Couleurs
+                    h6
+                        b Affranchissement :
+                    h7.form-group Nombre de courriers à affranchir
+                        input.form-control(type = 'number' name ='nbCourier' value="0")
+                    h7.form-group Poids total du courrier :
+                        input.form-control(type = 'number' step="0.01" name ='poidsCourrier' value="0")
+                    input.form-control(type = 'submit' value = 'Envoyer la demande')

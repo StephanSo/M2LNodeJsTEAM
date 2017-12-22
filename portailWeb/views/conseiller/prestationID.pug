@@ -1,0 +1,45 @@
+extends ../layout
+
+block append body
+    .container.theme-showcase(role='main')
+
+        .jumbotron
+            if(role != 'Conseiller')
+                h1 VOUS N'AVEZ PAS ACCES A CELA
+            else
+                h1  Détails de la prestation sélectionnée
+                p
+                    | La prestation #{prestation._idpresta} est a valider ou non par le conseiller
+                if(prestation._etat)
+                    div.alert.alert-success
+                        p La prestation à été valider
+                else
+                    div.alert.alert-danger
+                        p La prestation n'as pas été valider
+
+                if(prestation._etat!=true)
+                    form(action='/prestation/'+prestation._idpresta+'' method='post')
+                        h4 Cette prestation concerne la ligue:
+                            b #{ligue.nom}
+                        p Elle est en date du #{prestation._date}
+                        if(prestation._nbcopie !=0)
+                            if(prestation._typecopie==='NB')
+                                p Elle comporte #{prestation._nbcopie} copie en noir et blanc
+                            else
+                                p Elle comporte #{prestation._nbcopie} copie en noir et blanc
+                        if(prestation._nbcourrier!=0)
+                            p Elle comporte #{prestation._nbcourrier} pour un poids de #{prestation._poidscourrier} g
+                        p Cochez la case et cliquer sur valider pour pouvoir accepter cette prestation
+                            input(type='checkbox' name='valider')
+                        input(type='submit' value='Valider')
+                else
+                    h4 Cette prestation concerne la ligue:
+                        b #{ligue.nom}
+                    p Elle est en date du #{prestation._date}
+                    if(prestation._nbcopie != 0)
+                        if(prestation._typecopie === 'NB')
+                            p Elle comporte #{prestation._nbcopie} copie en noir et blanc
+                        else
+                            p Elle comporte #{prestation._nbcopie} copie en noir et blanc
+                    if(prestation._nbcourrier != 0)
+                        p Elle comporte #{prestation._nbcourrier} pour un poids de #{prestation._poidscourrier} g

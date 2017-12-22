@@ -52,5 +52,22 @@ class DAOLigue {
         })
 
     }
+    ligueById(id,cb){
+        const query={
+            name:'fetch-une-ligue-ById',
+            text:'select nom from ligue where "idLigue" =$1',
+            values:[id]
+        };
+        this._client.query(query,function(err, result){
+            if(err){
+                console.log(err.stack);
+
+            }
+            else{
+                let laLigue = new Ligue(id, result.rows[0]['nom']);
+                cb(laLigue);
+            }
+        })
+    }
 }
 module.exports = DAOLigue;

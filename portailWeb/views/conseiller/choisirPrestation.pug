@@ -1,0 +1,40 @@
+extends ../layout
+
+block append body
+    .container.theme-showcase(role='main')
+
+        .jumbotron
+            if(role!='Conseiller')
+                h1 VOUS N'AVEZ PAS ACCES A CELA
+            else
+                h1  Choisir la prestation à valider
+                p
+                    | Le conseiller peut valider des prestations suite à la demande des ligues.
+                h3 Formulaire
+
+                p.lead
+                    h7 Choissisez la prestation:
+                        table.table
+                            thead
+                                tr
+                                    th ID
+                                    th Ligue
+                                    th Detail
+                            tbody
+                                each prestation in liste
+                                    if(prestation._etat=== true)
+                                        tr.success
+                                            td= prestation._idpresta
+                                                each ligue in ligues
+                                                    if(ligue.idLigue === prestation._nomligue)
+                                                        td= ligue.nom
+                                                td
+                                                    a(href='/prestation/'+prestation._idpresta+'') Voir Détail
+                                    else
+                                        tr.danger
+                                            td= prestation._idpresta
+                                            each ligue in ligues
+                                                if(ligue.idLigue === prestation._nomligue)
+                                                    td= ligue.nom
+                                            td
+                                                a(href='/prestation/' + prestation._idpresta + '') Voir Détail

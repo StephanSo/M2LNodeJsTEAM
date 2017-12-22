@@ -13,6 +13,7 @@ var session = require('express-session'); //library to manage sessions.
 var index = require('./routes/index');
 var users = require('./routes/users');
 var demandePrestation=require('./routes/demandePrestation');
+var prestation = require('./routes/prestation');
 
 var app = express();
 
@@ -39,6 +40,7 @@ app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: fals
 app.use('/', index);
 app.use('/users', users);
 app.use('/demandePrestation',demandePrestation);
+app.use('/prestation', prestation);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
