@@ -6,7 +6,7 @@ const daoDemandePrestation = new DAODemandePrestation();
 
 exports.demandePrestation = function(req, res) { // attention à la route / depuis le /login
     console.log(req.session);
-    res.render('ligue/demandePrestation',{user:req.session.user, role:req.session.role});
+    res.render('ligue/demandePrestation',{user:req.session.user, role:req.session.role, listLigues:lesLigues});
 
 };
 
