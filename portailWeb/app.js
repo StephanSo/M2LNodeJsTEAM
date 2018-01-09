@@ -14,6 +14,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var demandePrestation=require('./routes/demandePrestation');
 var prestation = require('./routes/prestation');
+var facture = require('./routes/facture');
 
 var app = express();
 
@@ -41,7 +42,7 @@ app.use('/', index);
 app.use('/users', users);
 app.use('/demandePrestation',demandePrestation);
 app.use('/prestation', prestation);
-
+app.use('/facture', facture);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

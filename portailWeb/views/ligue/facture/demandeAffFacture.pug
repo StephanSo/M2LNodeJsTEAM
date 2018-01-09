@@ -1,0 +1,40 @@
+extends ../../layout
+
+block append body
+    .container.theme-showcase(role='main')
+
+        .jumbotron
+            if(role != 'ligue')
+                h1 VOUS N'AVEZ PAS ACCES A CELA
+            else
+                h1  Visualiser les factures
+                h4 Liste de factures des ligues
+                form.form-horizontal(action='/facture/demandeAfficheFact', method='post')
+                    h7 La ligue:
+                    .form
+                        select(name="ligue")
+                            each ligue in listLigues
+                                option(value=''+ligue.idLigue+'') #{ligue.nom}
+                    h7.form-group selectionner le mois
+                        select.form-control(name="test")
+                            option(value='01') JANVIER
+                            option(value='02') FEVRIER
+                            option(value='03') MARS
+                            option(value='04') AVRIL
+                            option(value='05') MAI
+                            option(value='06') JUIN
+                            option(value='07') JUILLET
+                            option(value='08') AOUT
+                            option(value='09') SEPTEMBRE
+                            option(value='10') OCTOBRE
+                            option(value='11') NOVEMBRE
+                            option(value='12') DECEMBRE
+                    h7.form-group selectionner l'année
+                        -var date = new Date(Date.now());
+                        -var y = date.getFullYear();
+                        -y=y+1
+                        select.form-control(name='annee')
+                            while y > date.getFullYear()-50
+                                option(value=y-1)= y-1
+                                -y=y-1;
+                    input.form-control(type="submit" value='Envoyer la demande')

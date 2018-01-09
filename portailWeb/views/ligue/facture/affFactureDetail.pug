@@ -1,0 +1,14 @@
+extends ../../layout
+
+block append body
+    .container.theme-showcase(role='main')
+
+        .jumbotron
+            if(role != 'ligue')
+                h1 VOUS N'AVEZ PAS ACCES A CELA
+            else
+                h1  Visualiser les factures
+                h4 Liste de factures des ligues
+                p id = #{facture.numeroFacture}
+                p ligue numero #{facture._uneLigue}
+                p date creation #{facture._dateEdition}
