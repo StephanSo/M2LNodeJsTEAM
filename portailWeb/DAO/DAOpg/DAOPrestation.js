@@ -4,12 +4,12 @@ const Prestation = require('../../model/prestation');
 class DAOPrestation{
     constructor(){
         this._client = new Client({
-            connectionString : 'postgres://groupe0:groupe0@192.168.222.86:5432/M2L'
+            connectionString : 'postgres://sonnois:sonnois@192.168.43.176:5432/m2lperso'
             // connectionString : process.ENV.DATABASE_URL
         });
 
         this._client.connect(function (err){
-            if (err) return done(err);
+            if (err) return err;
         });
     }
 
