@@ -15,6 +15,7 @@ var users = require('./routes/users');
 var demandePrestation=require('./routes/demandePrestation');
 var prestation = require('./routes/prestation');
 var facture = require('./routes/facture');
+var android = require('./routes/android');
 
 var app = express();
 
@@ -43,6 +44,7 @@ app.use('/users', users);
 app.use('/demandePrestation',demandePrestation);
 app.use('/prestation', prestation);
 app.use('/facture', facture);
+app.use('/android', android);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

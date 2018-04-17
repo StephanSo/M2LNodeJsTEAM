@@ -16,10 +16,12 @@ exports.login_authentication = function(req, res) {
         if(okpasok==="ok"){
             req.session.user=username;
             daoRole.getRoleByUsername(username, function (leRole) {
-                req.session.role=leRole;
 
-                console.log('test', req.session);
-                res.render('index', {user:req.session.user, role:req.session.role});
+                    req.session.role = leRole;
+
+                    console.log('test', req.session);
+                    res.render('index', {user: req.session.user, role: req.session.role});
+
             })
 
         }

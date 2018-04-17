@@ -11,7 +11,7 @@ class DAODemandePrestation {
         });
     }
     ajouterDemandePrestation(idLigue, dateDemande, nbCopie, typeCopie, nbAffr, pdsAffr) {
-        const text='insert into prestation values(nextval(\'seq_num_presta\'),$1,$2,$3,$4,$5,$6,null)';
+        const text='insert into prestation values(nextval(\'seq_num_prestations\'),$1,$2,null,$5,$6,$4,$3)';
 
         const values =[idLigue, dateDemande,nbCopie,typeCopie,nbAffr,pdsAffr];
         this._client.query(text,values, function(err,res){
