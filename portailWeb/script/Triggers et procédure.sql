@@ -76,3 +76,16 @@ $$
 		insert into activite values(nextV,designation,nbmax); 
 	end;
 $$;
+
+
+--procedure creeativiteadapte
+
+CREATE OR REPLACE FUNCTION creeactiviteadapte(senior int, activite int)
+RETURNS void
+LANGUAGE plpgsql
+AS
+$$
+   INSERT INTO activiteadapte VALUES(senior, activite);
+
+
+$$
