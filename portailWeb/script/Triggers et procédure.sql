@@ -5,8 +5,7 @@ RETURNS void
 LANGUAGE plpgsql
 AS 
 $$
-	declare
-		nextV int;
+	declare nextV int;
 	begin
 	
 	nextV = nextval('seq_num_user'); 
@@ -69,7 +68,8 @@ RETURNS void
 LANGUAGE plpgsql
 AS
 $$
-	declare nextV int;
+	declare 
+	nextV int;
 
 	begin
 		nextV = nextval('seq_num_activite');
@@ -85,7 +85,7 @@ RETURNS void
 LANGUAGE plpgsql
 AS
 $$
-   INSERT INTO activiteadapte VALUES(senior, activite);
-
-
-$$
+	begin
+		INSERT INTO activiteadapte VALUES(senior, activite);
+	end;
+$$;

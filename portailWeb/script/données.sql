@@ -14,3 +14,6 @@ select creerligue('Ligue');
 
 select creeractivite('PECHE', 35);
 select creeractivite('RUGBY',65);
+
+--creation d'une facture 
+insert into facture values (nextval('seq_num_facture'),'19-04-2018', 3)

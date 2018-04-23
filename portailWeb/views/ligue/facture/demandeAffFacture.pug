@@ -10,7 +10,7 @@ block append body
                 h1  Visualiser les factures
                 h4 Liste de factures des ligues
                 form.form-horizontal(action='/facture/demandeAfficheFact', method='post')
-                    h7 La ligue:
+                    //h7 La ligue:
                     .form
                         select(name="ligue")
                             each ligue in listLigues
