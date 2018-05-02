@@ -3,7 +3,7 @@ const Facture = require('../../model/facture');
 class DAOFacture{
     constructor(){
         this._client= new Client({
-            connectionString : 'postgres://groupe0:groupe0@192.168.222.86:5432/M2L'
+            connectionString : 'postgres://sonnois:sonnois@192.168.1.23:5432/m2lperso'
         });
         this._client.connect(function (err) {
             if (err) return err;

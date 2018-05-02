@@ -1,10 +1,11 @@
 const {Client} = require('pg');
 const Users = require('../../model/users');
+const Senior = require('../../model/senior');
 
 class DAOUser{
     constructor(){
         this._client = new Client({
-            connectionString : 'postgres://groupe0:groupe0@192.168.222.86:5432/M2L'
+            connectionString : 'postgres://sonnois:sonnois@192.168.1.23:5432/m2lperso'
             // connectionString : process.ENV.DATABASE_URL
         });
 
@@ -12,7 +13,29 @@ class DAOUser{
             if (err) return err;
         });
     }
+    getUserAndroid(cb){
+        const query = {
+            name:'fetch-all-user',
+            text:'select * from Senior inner join "user" u on u."idUser" = Senior."idSenior"',
+        };
+        this._client.query(query, function(err,result){
+            let lesUsers = [];
+            if(err){
+                console.log(err.stack);
+            }else{
+                let i=0;
+                result.rows.forEach(function (row) {
 
+                    let unUser = new Senior(result.rows[i]['idUser'], result.rows[i]['username'], result.rows[i]['password'],result.rows[i]['nom'],result.rows[i]['numsecu']);
+                    lesUsers.push(unUser);
+                    i++;
+                });
+
+            }
+            cb(lesUsers);
+        })
+
+    }
     getUser(cb){
         const query = {
             name:'fetch-all-user',
