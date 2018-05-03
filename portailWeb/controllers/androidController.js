@@ -23,6 +23,7 @@ exports.listActiviteSenior = function(req,res){
 				compte +=1;
 				console.log(compte);
 				console.log(size);
+				
 				if(compte ==size){
 					let listAct = JSON.stringify(lesActs);
 					res.send(listAct);

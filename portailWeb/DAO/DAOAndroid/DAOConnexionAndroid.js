@@ -49,7 +49,7 @@ class DAOConnexionAndroid {
             }
             else{
                 result.rows.forEach(function(){
-                    let unActivite = new Activite(result.rows[0]['identifiant'],result.rows[0]['designation'],result.rows[0]['nbMax']);
+                    let unActivite = new Activite(result.rows[0]['identifiant'],result.rows[0]['designation'],result.rows[0]['nbmax']);
                     cb(unActivite);
                 })
             }
