@@ -5,7 +5,7 @@ const Senior = require('../../model/senior');
 class DAOUser{
     constructor(){
         this._client = new Client({
-            connectionString : 'postgres://sonnois:sonnois@192.168.1.23:5432/m2lperso'
+            connectionString : 'postgres://groupe0:groupe0@192.168.222.86:5432/M2L'
             // connectionString : process.ENV.DATABASE_URL
         });
 
